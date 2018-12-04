@@ -1,0 +1,30 @@
+nav{
+    background-color: blue;
+}
+body{
+    background-color: aqua;
+}
+
+.card{
+    background-color: cadetblue;
+}
+
+.carousel-item{
+    margin-left: 10%;
+    
+}
+.carousel-item, img{
+    width: 80%;
+    height:500px;
+}
+h5,p{
+    color: bisque;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    size: 15px;
+}

@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block descripcion %}
+Eventos
+{% endblock descripcion %}
+{% block contenido %}
+<h1>Historial de Eventos</h1>
+<div class="row">
+    <div class="col-sm-3" style="margin-top: 50px; background-color: blueviolet;">
+        <h2>{% block nombre_pagina %}
+            {% endblock nombre_pagina %}
+        </h2>
+
+        {% if te %}
+        <a class="dropdown-item" href="">Próximos Eventos</a>
+        {% for te in te %}
+        <a class="dropdown-item" href="{% url 'lista_eventos_filtro_tipo' te.id %}">{{te.descripcion}}</a>
+        {% endfor%}
+        {% else %}
+        No hay tipos de evento
+        {% endif%}
+
+    </div>
+    {% if eventos %}
+    <div class="col-sm-9">
+        {%for e in eventos %}
+        <div class="card  bg-info mb-3" style="width: 60%; margin: 50px 20% 20px;text-align: center">
+            <div class="card-header">
+                {{e.tipo_evento}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Fecha Evento -- {{e.fecha_evento}}</li>
+                <li class="list-group-item">Hora Evento -- {{e.hora_evento }}</li>
+                <li class="list-group-item">Dirección -- {{e.direccion }}</li>
+                <li class="list-group-item">Comentarios -- {{e.descripcion }}</li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif%}
+</div>
+
+{% endblock contenido %}
